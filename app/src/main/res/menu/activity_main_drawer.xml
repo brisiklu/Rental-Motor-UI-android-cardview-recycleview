@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"> 
+    <group android:checkableBehavior="single">
+        
+
+    <item android:title="@string/my_profile">
+        <menu>
+            <item
+                android:id="@+id/my_orders"
+                android:icon="@drawable/ic_book_black_24dp"
+                android:title="Booking" />
+            <item
+                android:id="@+id/my_cart"
+                android:icon="@drawable/ic_mode_edit_black_18dp"
+                android:title="Riwayat Sewa" />
+            <item
+                android:id="@+id/my_wishlist"
+                android:icon="@drawable/ic_discount"
+                android:title="Promo" />
+            <item
+                android:id="@+id/my_rewards"
+                android:icon="@drawable/ic_card_giftcard_black_24dp"
+                android:title="Voucher" />
+            <item
+                android:id="@+id/my_account"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="Logout" />
+        </menu>
+    </item>
+    </group>
+    <item android:title="Sini Aku Bantuin">
+        <menu>
+            <item
+                android:id="@+id/contact_us"
+                android:title="Hubungi Kami" />
+            <item
+                android:id="@+id/terms_conditions"
+                android:title="Ketentuan" />
+            <item
+                android:id="@+id/help_center"
+                android:title="Pusat Bantuan" />
+        </menu>
+    </item></menu>

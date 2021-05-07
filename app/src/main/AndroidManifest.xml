@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.asa.app">
+    
+    <application
+        android:name=".RentalkucoApplication"
+        android:allowBackup="true"
+		android:icon="@drawable/rentalkuco"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+		<activity 
+			android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+	    </activity>
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".MasukActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+        />
+        <activity 
+            android:name=".DaftarActivity" 
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".EmptyActivity"
+            android:theme="@style/AppTheme"
+        />
+        <activity android:name=".MotorActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+        />
+        <activity android:name=".MotorItemActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+        />
+        <activity android:name=".OrderActivity"
+            android:label="@string/order_info"
+            android:theme="@style/AppTheme.NoActionBar"
+        />
+        <activity android:name=".DaftarSuksesActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>
