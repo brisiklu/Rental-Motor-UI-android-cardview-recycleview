@@ -1,9 +1,3 @@
-# brisiklu-Rental-Motor-UI-android-cardview-recycleview
-Iseng bikin plikasi rental motor, hanya user interface yang mana jika tombol di Halaman Utama sampe tampilan Transaksi hahaha
-TugasnyaAsaSiCimplisHaha
-
-#****SS
-
 ![1.Tampilan_Awal.jpg](https://user-images.githubusercontent.com/14919450/117884051-5f818000-b2d6-11eb-8370-8913e21d176a.jpg)
 ![2.Login.jpg](https://user-images.githubusercontent.com/14919450/117884117-71632300-b2d6-11eb-81e1-7566075df337.jpg)
 ![3.AlertDialog_Daftar.jpg](https://user-images.githubusercontent.com/14919450/117884194-8770e380-b2d6-11eb-8171-3be6728fc4c5.jpg)
@@ -16,7 +10,7 @@ TugasnyaAsaSiCimplisHaha
 ![10.Detail_Pembayaran.jpg](https://user-images.githubusercontent.com/14919450/117884493-e46c9980-b2d6-11eb-92db-8c4387769ab4.jpg)
 ![11.BarcodeGakGunaHaha.jpg](https://user-images.githubusercontent.com/14919450/117884522-ef272e80-b2d6-11eb-8d58-3d5f0e7ad76d.jpg)
 
-# ****Link Apk
-# ****Test Estes Test
-- [ ] []()https://github.com/brisiklu/Rental-Motor-UI-android-cardview-recycleview/raw/master/SCREENSHOOT_APK/Rentalku.co.apk[]()
-
+# Link Apk
+# Test Estes Test
+- [ ] []()https://github.com/brisiklu/Rental-Motor-UI-android-cardview-recycleview/raw/master/SCREENSHOOT_APK/Rentalku.co.apk
+    
