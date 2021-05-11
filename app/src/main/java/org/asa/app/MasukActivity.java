@@ -9,7 +9,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 {
 	TextView txtSignup;
     // Email, password edittext
-    EditText txtUsername, txtPassword;
+    EditText txtUsernameEmail, txtPassword;
 
     // login button
     Button btnLogin;
@@ -19,6 +19,11 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 
     // Session Manager Class
 	SessionManager session;
+	//public static android.content.SharedPreferences SharedPreferences = null;
+	private static final String PREFER_NAME = "USER";
+	
+
+	private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,7 +54,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         txtSignup.setOnClickListener(this);
 
         // Email, Password input text
-        txtUsername = (EditText) findViewById(R.id.email);
+        txtUsernameEmail = (EditText) findViewById(R.id.email);
         txtPassword = (EditText) findViewById(R.id.password); 
         // Login button
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -57,6 +62,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         
         btnGoogle =( ImageButton) findViewById(R.id.google_login);
         btnGoogle.setOnClickListener(this);
+		sharedPreferences = getSharedPreferences(PREFER_NAME, Context.MODE_PRIVATE);
 	}
 
 	@Override
@@ -70,48 +76,44 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btnLogin:
                 // Get username, password from EditText
-                String username = txtUsername.getText().toString();
-                String password = txtPassword.getText().toString();
+                String username = txtUsernameEmail.getText().toString();
+				String password = txtPassword.getText().toString();
 
-                // Check if username, password is filled                
-                if (username.trim().length() > 0 && password.trim().length() > 0)
-                {
-                    // For testing puspose username, password is checked with sample data
-                    // username = test
-                    // password = test
-                    if (username.equals("Asarany@rentalku.co") && password.equals("0+1=1SayangIbu"))
-                    {
+				// Validate if username, password is filled             
+				if(username.trim().length() > 0 && password.trim().length() > 0){
+					String uNameEmail = null;
+                    String uPassword =null;
 
-                        // Creating user login session
-                        // For testing i am stroing name, email as follow
-                        // Use user real data
-                        session.createLoginSession("Asarany@rentalku.co", "0+1=1SayangIbu");
+					if (sharedPreferences.contains("EmailPengguna"))
+					{
+						uNameEmail = sharedPreferences.getString("EmailPengguna", "");
 
-                        // Staring MainActivity
+					}
 
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(i);
-                        finishAffinity();
+					if (sharedPreferences.contains("Password"))
+					{
+						uPassword = sharedPreferences.getString("Password", "");
 
+					}
 
-                    }
-                    else if (username.equals("Kelompok6@rentalku.co") && password.equals("SIM123"))
-                    {
-                        session.createLoginSession("Kelompok6@rentalku.co", "SIM123");
-                        Intent i1 = new Intent(getApplicationContext(), MainActivity.class);
-                        i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(i1);
-                        finishAffinity();
-                    }
-                    else if (username.equals("coba") && password.equals("coba"))
-                    {
-                        session.createLoginSession("coba", "coba");
-                        Intent i1 = new Intent(getApplicationContext(), MainActivity.class);
-                        i1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(i1);
-                        finishAffinity();
-                    }
+					// Object uName = null;
+					// Object uEmail = null;
+					if(username.equals(uNameEmail) && password.equals(uPassword)){
+
+						session.createLoginSession(uNameEmail,uPassword);
+													   
+
+						// Starting MainActivity
+						Intent i = new  Intent(getApplicationContext(),MainActivity.class);
+						i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+						// Add new Flag to start new Activity
+						i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						startActivity(i);
+
+						finish();
+						
+						}
                     else
                     {
                         // username / password doesn't match

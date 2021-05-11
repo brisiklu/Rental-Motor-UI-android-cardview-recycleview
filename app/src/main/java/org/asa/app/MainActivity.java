@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private OutletsAdapter adapter;
     private List<Outlet> outletList;
     private SessionManager session;
-
+	TextView textItemSewaCount;
+    int mSewaItemCount = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -99,15 +100,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         
     }
+	
+	private void setupBadge() {
+
+        if (textItemSewaCount != null) {
+            if (mSewaItemCount == 0) {
+                if (textItemSewaCount.getVisibility() != View.GONE) {
+                    textItemSewaCount.setVisibility(View.GONE);
+                }
+            } else {
+                textItemSewaCount.setText(String.valueOf(Math.min(mSewaItemCount, 99)));
+                if (textItemSewaCount.getVisibility() != View.VISIBLE) {
+                    textItemSewaCount.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+    }
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+
+            case R.id.action_notifications: {
+					// Do something
+					return true;
+				}
+        }
+		return super.onOptionsItemSelected(item);
+	}
+	
+	
     
     @Override
     public void onClick(View p1)
     {
         // TODO: Implement this method
-    }
-    private void setHeaderNameIntent (String name){
-        TextView y = (TextView) findViewById(R.id.email);
-        y.setText(name);
     }
 
     /**
@@ -125,34 +152,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             R.drawable.bg1,
             R.drawable.bg1,
             R.drawable.bg1,};
-        Outlet a = new Outlet("ZEE RENT","1 Km","5",covers[0],0);
+        Outlet a = new Outlet("ZEE RENT","1 Km","5",covers[0],0,"Jl. Karangjati 01");
         outletList.add(a);
 
-        a = new Outlet("BRISIK RENT", "1.2 Km","2", covers[1],1);
+        a = new Outlet("BRISIK RENT", "1.2 Km","2", covers[1],1,"Jl. Pringapus 02");
         outletList.add(a);
 
-        a = new Outlet("HISTORIA RENT", "1.5 Km","3.5", covers[2],2);
+        a = new Outlet("HISTORIA RENT", "1.5 Km","3.5", covers[2],2,"Jl. Macan Mati 03");
         outletList.add(a);
 
-        a = new Outlet("LYANNA RENT", "2 Km","3", covers[3],3);
+        a = new Outlet("LYANNA RENT", "2 Km","3", covers[3],3,"Jl. Klepu 04");
         outletList.add(a);
 
-        a = new Outlet("SANSA RENT", "2.5 Km","5", covers[4],4);
+        a = new Outlet("SANSA RENT", "2.5 Km","5", covers[4],4,"Jl. Pengairan 05");
         outletList.add(a);
 
-        a = new Outlet("EZ RENT", "3 Km","4", covers[5],5);
+        a = new Outlet("EZ RENT", "3 Km","4", covers[5],5,"Jl. Tinalun 069");
         outletList.add(a);
 
-        a = new Outlet("STARK RENT", "3.5 Km","5", covers[6],6);
+        a = new Outlet("STARK RENT", "3.5 Km","5", covers[6],6,"Jl. Cinta 021");
         outletList.add(a);
 
-        a = new Outlet("LANNISTER RENT", "4 Km", "5",covers[7],7);
+        a = new Outlet("LANNISTER RENT", "4 Km", "5",covers[7],7,"Jl. Gledek 08");
         outletList.add(a);
 
-        a = new Outlet("TARGARYAN RENT", "4. 5","4.5", covers[8],8);
+        a = new Outlet("TARGARYEN RENT", "4. 5","4.5", covers[8],8,"Jl. Tidur 113");
         outletList.add(a);
 
-        a = new Outlet("PARAHMENRENT", "10 Km", "3.5",covers[9],9);
+        a = new Outlet("Asarany", "18++ Km", "7",covers[9],9,"Jl. Semangat Berani 45");
         outletList.add(a);
 
         adapter.notifyDataSetChanged();
@@ -293,6 +320,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+		final MenuItem menuItem = menu.findItem(R.id.action_notifications);
+
+        View actionView = menuItem.getActionView();
+        textItemSewaCount = actionView.findViewById(R.id.cart_badge);
+
+//        setupBadge();
+
+        actionView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					onOptionsItemSelected(menuItem);
+				}
+			});
         return true;
     }
 }

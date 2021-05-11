@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import android.support.v7.widget.CardView;
 import android.content.Intent;
 import android.util.Log;
+import android.os.*;
 public class MotorsAdapter extends RecyclerView.Adapter<MotorsAdapter.MyViewHolder>
 {
 
@@ -28,19 +29,24 @@ public class MotorsAdapter extends RecyclerView.Adapter<MotorsAdapter.MyViewHold
     private static final String TAG = "MotorsAdapter";
     private Context mContext;
     private List<MotorModel> motorModelList;
-    
+    private List<Outlet> outletList;
     public class MyViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView namaMotor, hargaSewa;
+        public TextView namaMotor, hargaSewa, nameOutlet,mAlamat,mJarak,mBintang;
         public ImageView potoMotor;
         public CardView cardViewMotor;
-
+		
+		
         public MyViewHolder(View view)
         {
             super(view);
+
+			nameOutlet = view.findViewById(R.id.titleOutlet);
+			
             namaMotor = view.findViewById(R.id.namaMotor);
             hargaSewa = view.findViewById(R.id.hargaSewa);          
             potoMotor = view.findViewById(R.id.potoMotor);
+			
             cardViewMotor = view.findViewById(R.id.cardViewMotor);
         }
 
@@ -70,26 +76,24 @@ public class MotorsAdapter extends RecyclerView.Adapter<MotorsAdapter.MyViewHold
     
     @Override
     public void onBindViewHolder(final MyViewHolder holder,  final int position) {
-          final MotorModel motor = motorModelList.get(position);
-        
+        final MotorModel motor = motorModelList.get(position);
+		
         holder.namaMotor.setText(motor.getNamaMotor());
         holder.hargaSewa.setText("Rp. "+ motor.getHargaSewaMotor() +" / hari");
-        
-
         //loading album cover using Glide library
         Glide.with(mContext).load(motor.getPotoMotor()).into(holder.potoMotor);
         Glide.with(mContext).load(motor.getCardViewMotor());
         holder.cardViewMotor.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    
+                     
                     Toast.makeText(mContext, motorModelList.get(position).getNamaMotor(), Toast.LENGTH_SHORT).show();
-                   
                     Intent intent = new Intent(mContext, MotorItemActivity.class);
                     //intent.putExtra(AlbumActivity.ALBUM, album);
                     intent.putExtra("nama",motorModelList.get(position).getNamaMotor());
                     intent.putExtra("harga",motorModelList.get(position).getHargaSewaMotor());
                     intent.putExtra("poto",motorModelList.get(position).getPotoMotor());
+					
 //                    Intent intent = new Intent(mContext, MotorItemActivity.class);
 //                    intent.putExtra("NAMA_MOTOR", mnamaMotor.get(position));
 //                    intent.putExtra("POTO_MOTOR", mPotoMotor.get(position));

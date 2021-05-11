@@ -34,7 +34,7 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
 
     private Context mContext;
     private List<Outlet> outletList;
-    
+    TextView mNamaOutlet,mJarak,mBintang;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, starText,jarakText;
@@ -71,8 +71,8 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
     
     
     @Override
-    public void onBindViewHolder(final MyViewHolder holder,  final int position) {
-        Outlet outlet = outletList.get(position);
+    public void onBindViewHolder(final MyViewHolder holder,   final int position) {
+      	Outlet outlet = outletList.get(position);
         holder.title.setText(outlet.getName());
         holder.starText.setText(outlet.getRating());
         holder.jarakText.setText(outlet.getJarak());
@@ -86,7 +86,12 @@ public class OutletsAdapter extends RecyclerView.Adapter<OutletsAdapter.MyViewHo
                 public void onClick(View view) {
                     Toast.makeText(mContext, outletList.get(position).getName(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mContext, MotorActivity.class);
-                    mContext.startActivity(intent);
+					intent.putExtra("NamaOutlet",outletList.get(position).getName());
+					intent.putExtra("Alamat",outletList.get(position).getAlamat());
+                    intent.putExtra("Jarak",outletList.get(position).getJarak());
+					intent.putExtra("Bintang",outletList.get(position).getRating());
+					mContext.startActivity(intent);
+					
                 }
             });
         

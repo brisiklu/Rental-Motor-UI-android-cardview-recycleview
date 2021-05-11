@@ -12,7 +12,7 @@ public class Outlet {
     private int thumbnail;
     private int cardViewOutlet;
     private String jarak;
-    
+    private String alamat;
     private int numOfSongs;
    
 
@@ -26,13 +26,24 @@ public class Outlet {
     }
     
     
-    public Outlet(String name, String jarak, String rating, int thumbnail, int cardViewOutlet){
+    public Outlet(String name, String jarak, String rating, int thumbnail, int cardViewOutlet, String alamat){
         this.name = name;
         this.jarak = jarak;
         this.thumbnail = thumbnail;
         this.rating = rating;
+		this.alamat =alamat;
         this.cardViewOutlet=cardViewOutlet;
     }
+
+	public void setAlamat(String alamat)
+	{
+		this.alamat = alamat;
+	}
+
+	public String getAlamat()
+	{
+		return alamat;
+	}
 
     public void setCardViewOutlet(int cardViewOutlet)
     {

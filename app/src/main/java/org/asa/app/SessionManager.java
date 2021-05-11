@@ -21,16 +21,19 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     // Sharedpref file name
-    private static final String PREF_NAME = "asa";
+    private static final String PREF_NAME = "USER";
 
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
-
+	
+	public static final String KEY_NAME = "Name";
+	
     // User name (make variable public to access from outside)
-    public static final String KEY_NAME_EMAIL = "emailpengguna";
+    public static final String KEY_NAME_EMAIL = "EmailPengguna";
 
     // Email address (make variable public to access from outside)
-    public static final String KEY_PASS = "password";
+    public static final String KEY_PASS = "Password";
+	public static final String KEY_PASS_KONFIRM = "PasswordKonfirm";
 
     // Constructor
     public SessionManager(Context context){
@@ -47,15 +50,15 @@ public class SessionManager {
     /**
      * Create login session
      * */
-    public void createLoginSession(String emailPengguna, String passwordPengguna){
+    public void createLoginSession(Object emailPengguna, Object passwordPengguna){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
         // Storing name in pref
-        editor.putString(KEY_NAME_EMAIL, emailPengguna);
+        editor.putString(KEY_NAME_EMAIL,(String) emailPengguna);
 
         // Storing email in pref
-        editor.putString(KEY_PASS,passwordPengguna );
+        editor.putString(KEY_PASS,(String) passwordPengguna );
 
         // commit changes
         editor.commit();
@@ -107,8 +110,9 @@ public class SessionManager {
      * */
     public void logoutUser(){
         // Clearing all data from Shared Preferences
+        
         editor.clear();
-        editor.commit();
+		editor.commit();
 
         // After logout redirect user to Loing Activity
         Intent i = new Intent(_context, MasukActivity.class);

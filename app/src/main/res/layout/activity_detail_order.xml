@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_motorRelativeLayout"
+    android:background="@color/viewBg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MotorActivity"
+    tools:showIn="@layout/activity_motor">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/motorAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.v7.widget.Toolbar
+
+            android:id="@+id/toolbarOrder"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+        </android.support.v7.widget.Toolbar>  
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="12dp"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:text="Detail Pembayaran"
+        android:layout_below="@+id/motorAppBarLayout"
+        android:id="@+id/activity_orderTextView"/>
+
+    <RelativeLayout 
+        android:id="@+id/activity_orderRelativeLayout"
+        android:layout_below="@+id/activity_orderTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:elevation="10dp"
+        android:background="@drawable/corner" >
+
+		<ImageView
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingTop="0dp"
+            android:layout_below="@+id/activity_orderTextView"
+            android:elevation="10dp"
+            android:paddingLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/album_cover_height_motor"
+            android:layout_height="@dimen/album_cover_height_outlet"
+            android:scaleType="fitXY"
+            android:id="@+id/imageMotor"
+        />
+		<TextView
+            android:layout_below="@+id/activity_orderTextView"
+            android:layout_toRightOf="@+id/imageMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/namaMotorOutletItem"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="true"
+            android:text="ZEE RENT"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#000000"
+        />
+        <TextView
+            android:layout_below="@+id/namaMotorOutletItem"
+            android:layout_toRightOf="@+id/imageMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:id="@+id/namaMotorItem"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="true"
+            android:text="Vespa Cimplis"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#000000"
+        />
+
+        <TextView
+            android:layout_below="@+id/imageMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hargaMotorItem"
+			android:layout_centerHorizontal="true"
+			android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:text="Harga : Rp. 290.000"
+            android:textSize="30sp"
+            android:textColor="#000000"
+        />
+          
+    </RelativeLayout>
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:text="Delivery Schedule"
+        android:layout_below="@+id/activity_orderRelativeLayout"
+        android:id="@+id/deliverSchedule"/>
+
+    <EditText
+        android:id="@+id/dateDeliverySch"
+        android:ems="10"
+        android:includeFontPadding="true"
+        android:paddingLeft="15dp"
+        android:inputType="date"
+        android:focusable="false"
+        android:hint="Delivery Schedule"
+        android:layout_below="@+id/deliverSchedule"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:background="@drawable/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+	
+    <TextView 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:text="Ingin Bayar?"
+        android:layout_below="@+id/dateDeliverySch"
+        android:id="@+id/textBayar"/>
+
+    <LinearLayout
+        android:id="@+id/activity_orderLinearLayout"
+        android:layout_below="@+id/textBayar"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:background="@drawable/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/cash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Cash" />
+        
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/activity_orderLinearLayout1"
+        android:layout_below="@+id/activity_orderLinearLayout"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:elevation="10dp"
+        android:background="@drawable/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+		<CheckBox
+            android:id="@+id/tf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Transfer Bank" />
+		<CheckBox
+            android:id="@+id/bca"
+			android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="Bca" />
+        <CheckBox
+            android:id="@+id/bri"
+			android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:text="BRI" />
+		<CheckBox
+            android:id="@+id/bni"
+			android:layout_marginLeft="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+			android:layout_marginBottom="10dp"
+            android:text="BNI" />
+
+    </LinearLayout>
+	
+	<Button
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:id="@+id/btnBayar"
+        android:layout_below="@+id/activity_orderLinearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+        android:layout_gravity="center"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="10dp"
+        android:background="@drawable/corner_button"
+        android:text="MAKE ORDER NOW"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout>

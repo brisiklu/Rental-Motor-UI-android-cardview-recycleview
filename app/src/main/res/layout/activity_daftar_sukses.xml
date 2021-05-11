@@ -87,13 +87,25 @@
 				android:layout_height="wrap_content"
 				android:textColor="#3a3a3a"
 				android:textSize="15sp" />
+			
+			<TextView
+                android:gravity="center"
+				android:layout_marginLeft="@dimen/activity_horizontal_margin"
+				android:layout_marginRight="@dimen/activity_horizontal_margin"
+				android:layout_marginTop="@dimen/activity_vertical_margin"
+				android:id="@+id/txtPassword"
+				android:layout_below="@+id/txtEmailDaftar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="#3a3a3a"
+				android:textSize="15sp" />
             <TextView
                 android:gravity="center"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/sah"
-                android:layout_below="@+id/txtEmailDaftar"
+                android:layout_below="@+id/txtPassword"
                 android:text="Sah terdaftar yeeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

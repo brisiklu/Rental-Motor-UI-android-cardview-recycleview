@@ -1,6 +1,7 @@
 package org.asa.app;
 
 import android.content.*;
+import android.content.SharedPreferences.Editor;
 import android.graphics.*;
 import android.os.*;
 import android.support.v7.app.*;
@@ -14,12 +15,17 @@ public class DaftarSuksesActivity extends AppCompatActivity implements View.OnCl
 {
 
 	Toolbar toolbarDaftarSukses;
-	TextView txtNamaLengkap,txtEmailDaftar,toolbartextSukse;
+	TextView txtNamaLengkap,txtEmailDaftar,txtPassword,toolbartextSukse;
 	Button btnLoginSukses;
-    private String nama,email;
+    private String nama,email,password;
     private String 
-	KEY_NAME = "NAMA", 
-	KEY_EMAIL= "EMAIL";
+	KEY_NAME = "Name", 
+	KEY_EMAIL= "EmailPengguna",
+	KEY_PASS = "Password";
+	
+	SharedPreferences sharedPreferences;
+	Editor editor;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,23 +37,23 @@ public class DaftarSuksesActivity extends AppCompatActivity implements View.OnCl
         }
 		changeStatusBarColor();
 
-        toolbarDaftarSukses = (Toolbar) findViewById(R.id.toolbarDaftarSukses);
-        toolbartextSukse = (TextView) findViewById(R.id.toolbar_textSukses);
-        if(toolbartextSukse!=null && toolbarDaftarSukses!=null) {
-            toolbartextSukse.setText(getTitle());
-            setSupportActionBar(toolbarDaftarSukses);
-        }
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        sharedPreferences = getApplicationContext().getSharedPreferences("USER", 0);
+        // get editor to edit in file
+		editor = sharedPreferences.edit();
+		
 		
 		Bundle extras = getIntent().getExtras();
         nama = extras.getString(KEY_NAME);
 		email= extras.getString(KEY_EMAIL);
+		password = extras.getString(KEY_PASS);
 		
 		txtNamaLengkap = (TextView) findViewById(R.id.txtNamaLengkap);
         txtNamaLengkap.setText("Oi, " + nama + " !");
 		txtEmailDaftar = (TextView) findViewById(R.id.txtEmailDaftar);
         txtEmailDaftar.setText("Emailmu, " + email + "");
-   
+   		txtPassword = (TextView) findViewById(R.id.txtPassword);
+		txtPassword.setText("Password, " + password + "");
+		
 		btnLoginSukses = (Button)findViewById(R.id.btnSuksesDaftar);
         btnLoginSukses.setOnClickListener(this);
 	}
@@ -58,6 +64,10 @@ public class DaftarSuksesActivity extends AppCompatActivity implements View.OnCl
 			
 			case R.id.btnSuksesDaftar:
 				Intent daftarToMasuk = new Intent(DaftarSuksesActivity.this, MasukActivity.class);
+				editor.putString("Name",nama );
+				editor.putString("EmailPengguna",email);
+				editor.putString("Password",password);
+				editor.commit();   // commit the values
 				startActivity(daftarToMasuk);
                 break;
             default:
@@ -81,12 +91,5 @@ public class DaftarSuksesActivity extends AppCompatActivity implements View.OnCl
 		//super.onBackPressed();  //just removed this line
 	}
 
-	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	
 }

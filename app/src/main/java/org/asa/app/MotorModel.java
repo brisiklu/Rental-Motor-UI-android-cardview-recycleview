@@ -5,10 +5,11 @@ public class MotorModel implements Serializable
 {
     private String hargaSewaMotor;
     private String namaMotor;
-    private int potoMotor;
+    private String potoMotor;
     private int cardViewMotor;
+	public Outlet outletAdapter;
 
-    public MotorModel(String namaMotor, String hargaMotor , int potoMotor , int cardViewMotor)
+    public MotorModel(String namaMotor, String hargaMotor , String potoMotor , int cardViewMotor)
     {
         this.namaMotor = namaMotor;
         this.hargaSewaMotor= hargaMotor;
@@ -19,6 +20,16 @@ public class MotorModel implements Serializable
     public MotorModel(){
         
     }
+
+	public void setOutletAdapter(Outlet outletAdapter)
+	{
+		this.outletAdapter = outletAdapter;
+	}
+
+	public Outlet getOutletAdapter()
+	{
+		return outletAdapter;
+	}
 
     public void setCardViewMotor(int cardViewMotor)
     {
@@ -41,12 +52,12 @@ public class MotorModel implements Serializable
         return hargaSewaMotor;
     }
 
-    public void setPotoMotor(int potoMotor)
+    public void setPotoMotor(String potoMotor)
     {
         this.potoMotor = potoMotor;
     }
 
-    public int getPotoMotor()
+    public String getPotoMotor()
     {
         return potoMotor;
     }

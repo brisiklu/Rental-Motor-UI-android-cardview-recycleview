@@ -23,7 +23,7 @@
             <item
                 android:id="@+id/my_account"
                 android:icon="@drawable/ic_person_black_24dp"
-                android:title="Logout" />
+                android:title="Hapus Akun" />
         </menu>
     </item>
     </group>

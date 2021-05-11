@@ -51,7 +51,7 @@ public class MotorActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarmainMotor);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+        getIncomingIntent();
         
         recyclerViewMotor = (RecyclerView) findViewById(R.id.recycleviewMotor);
 
@@ -68,53 +68,83 @@ public class MotorActivity extends AppCompatActivity
 
 
     }
+	private void getIncomingIntent()
+	{
+
+        if (getIntent().hasExtra("NamaOutlet") 
+			&& getIntent().hasExtra("Alamat") 
+			&& getIntent().hasExtra("Jarak")
+			&& getIntent().hasExtra("Bintang"))
+		{
+
+            String snamaOutlet = getIntent().getStringExtra("NamaOutlet");
+            String sAlamat = getIntent().getStringExtra("Alamat");
+            String sJarak = getIntent().getStringExtra("Jarak");
+			String sBintang = getIntent().getStringExtra("Bintang");
+			setImage(snamaOutlet, sAlamat, sJarak,sBintang);
+        }
+    }
+
+
+    private void setImage(String snamaOutlet, String sAlamat, String sJarak, String sBintang)
+	{
+        
+        TextView nameOutlet = (TextView) findViewById(R.id.titleOutlet);
+        nameOutlet.setText(snamaOutlet);
+
+        TextView  mAlamat= (TextView) findViewById(R.id.title);
+        mAlamat.setText(sAlamat);
+		
+		TextView  mJarak= (TextView) findViewById(R.id.jarakText);
+        mJarak.setText(sJarak);
+		
+        TextView  mBintang= (TextView) findViewById(R.id.starText);
+        mBintang.setText(sBintang);
+    }
+	
+	
+	
 
     /**
      * Adding few albums for testing
      */
     private void prepareAlbums() {
         int[] covers = new int[]{
-            R.drawable.vario,
-            R.drawable.ninja,
-            R.drawable.supra,
-            R.drawable.klx,
-            R.drawable.veszpa,
-            R.drawable.beat,
-            R.drawable.nmax,
-            R.drawable.ninja,
-            R.drawable.mio,
-            R.drawable.grand,};
+          
+            R.drawable.ninja
+			
+			};
             
-        MotorModel a = new MotorModel("Vario 125","90.000",covers[0],0);
+        MotorModel a = new MotorModel("Vespa Cimplis","290.000","https://www.vespa.com/dam/jcr:fe8f43d3-c325-4860-94cd-6232d44bce23/yellow-lime-2.png",0);
         motorModelList.add(a);
 
-        a = new MotorModel("R15", "140.000",covers[1],1);
+        a = new MotorModel("Yamaha R15 Kuning", "200.000","https://i1.wp.com/motomazine.com/wp-content/uploads/2019/05/r15-kuning.png",1);
         motorModelList.add(a);
 
-        a = new MotorModel("Supra", "80.000",covers[2],2);
+        a = new MotorModel("Trail 250cc", "280.000","https://www.motoris.id/wp-content/uploads/2020/08/Motor-Trail-listrik-yang-dikembangkan-perusahaan-rintisan-asal-Belanda-yang-didukung-Yamaha-Eropa-dok.Electric-Motorcyles-e1596857633928.jpg",2);
         motorModelList.add(a);
 
-        a = new MotorModel("KLX", "175.000",covers[3],3);
+        a = new MotorModel("Honda C70", "175.000","https://asset.kompas.com/crop/0x5:740x498/750x500/data/photo/2017/10/20/1570158269.jpg",3);
         motorModelList.add(a);
 
-        a = new MotorModel("Vespa", "120.000", covers[4],4);
+        a = new MotorModel("Kawasaki", "120.000", "https://dirtbikemagazine.com/wp-content/uploads/2016/01/procteam.jpg",4);
         motorModelList.add(a);
 
-        a = new MotorModel("Beat", "80.000", covers[5],5);
+        a = new MotorModel("Scoopy", "80.000", "https://i2.wp.com/motomazine.com/wp-content/uploads/2020/11/IMG-20201111-WA0010.jpg",5);
         motorModelList.add(a);
 
-        a = new MotorModel("Nmax", "150.000", covers[6],6);
+        a = new MotorModel("CBR600RR", "150.000", "https://i1.wp.com/motomazine.com/wp-content/uploads/2021/02/AHM_CBR600RR.jpg",6);
+        motorModelList.add(a);
+//
+        a = new MotorModel("LED WHITE Vespa", "130.000", "https://www.vespa.com/dam/jcr:1ac570fc-0c5d-495a-bf18-9d7e10e9c857/VXL-125-150-led-white.png",7);
         motorModelList.add(a);
 
-        a = new MotorModel("Ninja RR", "130.000", covers[7],7);
+        a = new MotorModel("VIXION", "10.000", "https://i1.wp.com/motomazine.com/wp-content/uploads/2021/03/Vixion-Matte-Blue.jpg",8);
         motorModelList.add(a);
 
-        a = new MotorModel("Mio", "10.000", covers[8],8);
+        a = new MotorModel("Stay Class Vespa", "500.000","https://s3-ap-southeast-1.amazonaws.com/moladin.assets/blog/wp-content/uploads/2019/10/28100055/5-Vespa-Termahal.jpg",9);
         motorModelList.add(a);
-
-        a = new MotorModel("Grand Astrea", "Gratis Poto",covers[9],9);
-        motorModelList.add(a);
-
+//
         adapterMotor.notifyDataSetChanged();
     }
     /**

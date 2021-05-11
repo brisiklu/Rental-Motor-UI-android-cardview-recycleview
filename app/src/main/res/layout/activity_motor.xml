@@ -54,8 +54,82 @@
         android:layout_below="@+id/motorAppBarLayout"
         android:id="@+id/content_mainRelativeLayout2"
         android:layout_width="match_parent"
-        android:background="@drawable/bannerzeeq"
+		android:background="#ffffff"
         android:layout_height="@dimen/banner_height_1">
+		<ImageView
+			android:layout_below="@+id/content_mainRelativeLayout2"
+			android:id="@+id/thumbnail"
+			android:clickable="false"
+			android:layout_margin="25dp"
+			android:layout_alignParentLeft="true"
+			android:background="@drawable/icon"
+			android:layout_width="@dimen/album_cover_height_outlet"
+			android:layout_height="@dimen/album_cover_height_outlet"
+			android:scaleType="centerCrop" />
+		<TextView
+			android:id="@+id/titleOutlet"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:layout_toRightOf="@+id/thumbnail"
+			android:text="ZEE RENT"
+			android:paddingLeft="@dimen/album_title_padding"
+			android:paddingRight="5dp"
+			android:paddingTop="@dimen/album_title_padding"
+			android:textColor="@color/album_title"
+			android:textStyle="bold"
+			android:textSize="25dp" />
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/titleOutlet"
+			android:layout_toRightOf="@+id/thumbnail"
+			android:text="Jl. Karangjati-Pringapus"
+			android:paddingLeft="@dimen/album_title_padding"
+			android:paddingRight="5dp"
+			android:paddingTop="0dp"
+			android:textColor="@color/album_title"
+			android:textSize="@dimen/album_title" />
+		<ImageView
+			android:id="@+id/jarakIco"
+			android:layout_marginTop="-2dp"
+			android:layout_width="58px"
+			android:layout_height="58px"
+			android:layout_below="@+id/title"
+			android:layout_toRightOf="@+id/thumbnail"
+			android:src="@drawable/map" />
+
+		<TextView
+			android:id="@+id/jarakText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/title"
+			android:paddingTop="1dp"
+			android:textColor="#000000"
+			android:text="1 Km"
+			android:layout_toRightOf="@+id/jarakIco"          
+			android:textSize="@dimen/songs_count" />
+		<ImageView
+			android:id="@+id/starIco"
+			android:layout_width="45px"
+			android:layout_height="45px"
+			android:layout_marginLeft="8dp"
+			android:layout_toRightOf="@+id/jarakText"
+			android:layout_below="@+id/title"
+			android:src="@drawable/star" />
+
+		<TextView
+			android:id="@+id/starText"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/title"
+			android:layout_marginLeft="5dp"
+			android:layout_toRightOf="@+id/starIco"
+			android:textColor="#000000"
+			android:text="5"
+			android:paddingLeft="1dp"
+			android:textSize="@dimen/songs_count" />
     </RelativeLayout>
     
     <TextView

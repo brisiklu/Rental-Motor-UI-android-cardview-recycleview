@@ -36,5 +36,4 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.14.1'
 	compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.github.jhonnyx2012:horizontal-picker:1.0.6'
 	}
